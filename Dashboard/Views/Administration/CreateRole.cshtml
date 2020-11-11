@@ -1,0 +1,28 @@
+﻿@model CreateRoleViewModel
+
+@{
+    ViewData["Title"] = "CreateRole";
+}
+
+<h1>CreateRole</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container">
+        @Html.ValidationSummary(true, "")
+        <div class="form-group">
+            @Html.LabelFor(model => model.RoleName)
+            <br />
+            @Html.TextBoxFor(model => model.RoleName, htmlAttributes: new { @class = "control-form" })
+            <br />
+            @Html.ValidationMessageFor(model => model.RoleName, "", htmlAttributes: new { @class = "text-danger" })
+        </div>        
+
+        <div class="form-group" style="width:auto">
+            <input type="submit" value="create Role" class="btn btn-primary"  style="width:auto"/>
+        </div>
+    </div>
+}
+

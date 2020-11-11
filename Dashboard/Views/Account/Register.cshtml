@@ -1,0 +1,51 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="container">
+    @Html.ValidationSummary(true, "")
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        <br />
+        @Html.TextBoxFor(model => model.Email, htmlAttributes: new { @class = "control-form" })
+        <br />
+        @Html.ValidationMessageFor(model => model.Email, "", htmlAttributes: new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Password)
+        <br />
+        @Html.PasswordFor(model => model.Password, htmlAttributes: new { @class = "control-form" })
+        <br />
+        @Html.ValidationMessageFor(model => model.Password, "", htmlAttributes: new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ConfrimPassword)
+        <br />
+        @Html.PasswordFor(model => model.ConfrimPassword, htmlAttributes: new { @class = "control-form" })
+        <br />
+        @Html.ValidationMessageFor(model => model.ConfrimPassword, "", htmlAttributes: new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.City)
+        <br />
+        @Html.TextBoxFor(model => model.City, htmlAttributes: new { @class = "control-form" })
+        <br />
+        @Html.ValidationMessageFor(model => model.City, "", htmlAttributes: new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Register" class="btn btn-default" />
+    </div>
+</div>
+}
